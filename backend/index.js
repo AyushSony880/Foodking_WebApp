@@ -15,7 +15,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:5174"],
+    origin: ["https://foodking880admin.netlify.app/", "https://foodking880.netlify.app/"],
     credentials: true,
     methods: ["POST", "GET", "PUT", "DELETE", "PATCH"],
   })
