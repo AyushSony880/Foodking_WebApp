@@ -23,12 +23,12 @@ const login = async (req, res) => {
     const token = jwt.sign({ id: isUser._id }, process.env.JWT_SECRET, {
       expiresIn: "1d",
     });
-    res.cookie(
-      "Token",
-      token,
-      { expires: new Date(Date.now() + 8 * 3600000) },
-      { httpOnly: true, secure: true }
-    );
+   res.cookie("Token", token, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "None",
+      maxAge: 8 * 60 * 60 * 1000,
+    });
     res.json({ message: "login successfully...", data: isUser });
   } catch (error) {
     res.status(500).json({
@@ -65,12 +65,12 @@ const signUp = async (req, res) => {
     const token = jwt.sign({ id: saveUser._id }, process.env.JWT_SECRET, {
       expiresIn: "1d",
     });
-    res.cookie(
-      "Token",
-      token,
-      { expires: new Date(Date.now() + 8 * 3600000) },
-      { httpOnly: true, secure: true }
-    );
+   res.cookie("Token", token, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "None",
+      maxAge: 8 * 60 * 60 * 1000,
+    });
     res.json({
       message: "User register successfully..",
       data: saveUser,
