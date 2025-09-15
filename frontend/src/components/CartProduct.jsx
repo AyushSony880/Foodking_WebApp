@@ -2,7 +2,7 @@ import { IoCloseCircle } from "react-icons/io5";
 import { useFoodContext } from "../Context/Context";
 
 function CartProduct({ data, dataQuantity }) {
-  const {  removeCartItem, increaseCartItem, decreaseCartItem } =
+  const {  removeCartItem, increaseCartItem, decreaseCartItem,backend_Url } =
     useFoodContext();
   console.log(data._id);
   return (
@@ -17,7 +17,7 @@ function CartProduct({ data, dataQuantity }) {
           <div className="w-24 overflow-hidden min-w-24 md:w-48">
             <img
               className="object-cover w-full rounded-md"
-              src={`http://localhost:4000/image/${data.image}`}
+              src={`${backend_Url}/image/${data.image}`}
               alt=""
             />
           </div>
